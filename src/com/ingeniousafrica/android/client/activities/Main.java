@@ -31,8 +31,8 @@ public class Main extends Activity implements OnClickListener{
 	String mVitesse;
 
 	/** Creation de tableau du choix pour les options */
-	private static final String Scouleurs [] = {"Rouge", "Bleue", "Verte",  "Noire", "Blanche", "Orange"};
-	private static final String Svitesses [] = {"Mécanique", "Automatique"};
+	//private static final String Scouleurs [] = {"Rouge", "Bleue", "Verte",  "Noire", "Blanche", "Orange"};
+	//private static final String Svitesses [] = {"Mécanique", "Automatique"};
 
 	/** Called when the activity is first created. */
 	@Override
@@ -70,8 +70,8 @@ public class Main extends Activity implements OnClickListener{
 			
 			public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 				
-				int item = R.array.couleur.getSelectedItemPosition();
-				mCouleur = Scouleurs[item];
+				//int item = mSpcouleur.getSelectedItemPosition();
+				//mCouleur = Scouleurs[item];
 
 				showToast("La couleur choisie est : " + mCouleur);
 
@@ -96,10 +96,9 @@ public class Main extends Activity implements OnClickListener{
 		mSpvitesse.setOnItemSelectedListener(new OnItemSelectedListener() {
 			public void onItemSelected(
 					AdapterView<?> parent, View view, int position, long id){
-  			    int item = mSpvitesse.getSelectedItemPosition();
-				mVitesse = Svitesses[item];
-				emaine semaine = Semaine.values()[position];
-			      selection.setText(semaine.name());
+  			   // int item = mSpvitesse.getSelectedItemPosition();
+				//mVitesse = Svitesses[item];
+				
 				showToast("Spinner1: position=" + view + " id=" + id);
                
 				showToast("La vitesse choisie est : " + mVitesse);
