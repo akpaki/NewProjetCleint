@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/activity_fabric_voiture_marque_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="@string/activity_fabric_voiture_marque"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/activity_fabric_voiture_marque_textview"
+        android:layout_marginTop="63dp"
+        android:text="@string/activity_fabric_voiture_textview_marque" />
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/activity_fabric_voiture_marque_textview"
+        android:layout_marginLeft="34dp"
+        android:layout_marginTop="48dp"
+        android:layout_toRightOf="@+id/textView1" />
+
+    <Button
+        android:id="@+id/activity_fabric_voiture_button_retour"
+        android:layout_width="100dip"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="122dp"
+        android:layout_marginLeft="22dp"
+        android:text="@string/activity_fabric_voiture_button_retour" />
+
+    <Button
+        android:id="@+id/activity_fabric_voiture_button_fabriquer"
+        android:layout_width="100dip"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/activity_fabric_voiture_button_retour"
+        android:layout_marginLeft="45dp"
+        android:layout_toRightOf="@+id/activity_fabric_voiture_button_retour"
+        android:text="@string/activity_fabric_voiture_button_fabriquer" />
+
+</RelativeLayout>

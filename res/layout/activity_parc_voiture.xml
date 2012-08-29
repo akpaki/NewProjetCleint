@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <TextView
+        android:id="@+id/activity_parc_voiture_fabric"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/activity_parc_voiture_fabric"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/activity_parc_voiture_client"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/activity_parc_voiture_fabric"
+        android:layout_marginTop="34dp"
+        android:text="@string/activity_parc_voiture_client" />
+
+    <TextView
+        android:id="@+id/activity_parc_voiture_client_nom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/activity_parc_voiture_fabric"
+        android:layout_alignTop="@+id/activity_parc_voiture_client"
+        android:layout_marginLeft="18dp"
+        android:text="Medium Text"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/activity_parc_voiture_client_prenom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/activity_parc_voiture_client_nom"
+        android:layout_alignBottom="@+id/activity_parc_voiture_client_nom"
+        android:layout_marginLeft="14dp"
+        android:layout_toRightOf="@+id/activity_parc_voiture_client_nom"
+        android:text="Medium Text"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/activity_parc_voiture_texteview_options"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/activity_parc_voiture_client_nom"
+        android:layout_marginTop="20dp"
+        android:text="@string/activity_parc_voiture_texteview_options" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/activity_parc_voiture_client_nom"
+        android:layout_below="@+id/activity_parc_voiture_texteview_options"
+        android:layout_marginTop="157dp"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/activity_parc_voiture_listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/activity_parc_voiture_texteview_options"
+        android:layout_marginTop="20dp"
+        android:layout_toLeftOf="@+id/activity_parc_voiture_button_retour" >
+
+    </ListView>
+
+    <Button
+        android:id="@+id/activity_parc_voiture_button_retour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="@string/activity_parc_voiture_button_retour" />
+
+</RelativeLayout>

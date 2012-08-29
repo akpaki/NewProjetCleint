@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello"></string>
+    <string name="app_name">ProjetClient</string>
+    <string name="activity_main_infos_client">Informations sur le client</string>
+    <string name="activity_main_textview_nom">Nom :</string>
+    <string name="activity_main_editex_nom">activity_main_editex_nom</string>
+    <string name="activity_main_textview_prenom">Prénom :</string>
+    <string name="activity_main_infos_options">Informations sur les options</string>
+    <string name="activity_main_textview_couleur">Couleur :</string>
+    <string name="activity_main_textview_boite_de_vitesse">Boite de vitesse :</string>
+    <string name="activity_main_button_valider">Valider</string>
+    <string name="activity_fabric_voiture_marque">Faites le choix de marque de votre voiture</string>
+    <string name="activity_fabric_voiture_textview_marque">Marque :</string>
+    <string name="activity_fabric_voiture_button_retour">Retour</string>
+    <string name="activity_fabric_voiture_button_fabriquer">Fabriquer</string>
+    <string name="activity_parc_voiture_fabric">Liste des voitures fabriquées</string>
+    <string name="activity_parc_voiture_client">Client :</string>
+    <string name="activity_parc_voiture_client_nom">Nom</string>
+    <string name="activity_parc_voiture_client_prenom">Prénom</string>
+    <string name="activity_parc_voiture_button_retour">Home</string>
+    <string name="activity_parc_voiture_texteview_options">Options :</string>
+    <string name="item_nouveau_voiture_marque_fabric">Marque :</string>
+    <string name="item_nouveau_voiture_couleur_fabric">Couleur :</string>
+    <string name="item_nouveau_voiture_boide_de_vitesse_fabric">Boite de vitesse :</string>
+    <string name="activity_main_textview_Testcase"></string>
+
+</resources>

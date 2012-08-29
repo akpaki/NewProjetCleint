@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/item_nouveau_voiture_texteview_marque"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="86dp"
+        android:text="Medium Text"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/item_nouveau_voiture_texteview_couleur"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/item_nouveau_voiture_texteview_marque"
+        android:layout_below="@+id/item_nouveau_voiture_texteview_marque"
+        android:layout_marginLeft="19dp"
+        android:layout_marginTop="24dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/item_nouveau_voiture_texteview_couleur"
+        android:layout_alignParentLeft="true"
+        android:text="@string/item_nouveau_voiture_marque_fabric" />
+
+    <TextView
+        android:id="@+id/item_nouveau_voiture_texteview_boite_de_vitesse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/item_nouveau_voiture_texteview_couleur"
+        android:layout_below="@+id/item_nouveau_voiture_texteview_couleur"
+        android:layout_marginTop="20dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/item_nouveau_voiture_texteview_couleur"
+        android:layout_alignBottom="@+id/item_nouveau_voiture_texteview_couleur"
+        android:layout_alignParentLeft="true"
+        android:text="@string/item_nouveau_voiture_couleur_fabric" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/item_nouveau_voiture_texteview_boite_de_vitesse"
+        android:layout_alignParentLeft="true"
+        android:text="@string/item_nouveau_voiture_boide_de_vitesse_fabric" />
+
+</RelativeLayout>

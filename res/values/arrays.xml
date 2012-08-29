@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="couleur">
+        <item >Rouge</item>
+        <item >Bleue</item>
+        <item >Verte</item>
+        <item >Noire</item>
+        <item >Blanche</item>
+        <item >Orange</item>
+    </string-array>
+    <string-array name="boite_de_vitesse">
+        <item >Mécanique</item>
+        <item >Automatique</item>
+    </string-array>
+    
+</resources>
