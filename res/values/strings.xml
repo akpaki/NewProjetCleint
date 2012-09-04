@@ -25,5 +25,12 @@
     <string name="item_nouveau_voiture_couleur_fabric">Couleur :</string>
     <string name="item_nouveau_voiture_boide_de_vitesse_fabric">Boite de vitesse :</string>
     <string name="activity_main_textview_Testcase"></string>
+    <string name="affiche_choix_couleur">La couleur choisie est : </string>
+    <string name="pas_selection_couleur">Pas de selection de couleur</string>
+    <string name="affiche_choix_vitesse">La vitesse choisie est : </string>
+    <string name="champs_vides">Les champs sont vides</string>
+    <string name="choix_marque_voiture">La marque choisie est : </string>
+    <string name="pas_selection_vitesse">Pas de selection de vitesse</string>
+    <string name="pas_choix_marque">Pas de choix de marque</string>
 
 </resources>

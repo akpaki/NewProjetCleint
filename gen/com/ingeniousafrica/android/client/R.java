@@ -11,6 +11,7 @@ public final class R {
     public static final class array {
         public static final int boite_de_vitesse=0x7f040001;
         public static final int couleur=0x7f040000;
+        public static final int marque=0x7f040002;
     }
     public static final class attr {
     }
@@ -74,10 +75,17 @@ public final class R {
         public static final int activity_parc_voiture_client_prenom=0x7f050011;
         public static final int activity_parc_voiture_fabric=0x7f05000e;
         public static final int activity_parc_voiture_texteview_options=0x7f050013;
+        public static final int affiche_choix_couleur=0x7f050018;
+        public static final int affiche_choix_vitesse=0x7f05001a;
         public static final int app_name=0x7f050001;
+        public static final int champs_vides=0x7f05001b;
+        public static final int choix_marque_voiture=0x7f05001c;
         public static final int hello=0x7f050000;
         public static final int item_nouveau_voiture_boide_de_vitesse_fabric=0x7f050016;
         public static final int item_nouveau_voiture_couleur_fabric=0x7f050015;
         public static final int item_nouveau_voiture_marque_fabric=0x7f050014;
+        public static final int pas_choix_marque=0x7f05001e;
+        public static final int pas_selection_couleur=0x7f050019;
+        public static final int pas_selection_vitesse=0x7f05001d;
     }
 }

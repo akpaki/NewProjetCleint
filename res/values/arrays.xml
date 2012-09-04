@@ -12,5 +12,13 @@
         <item >Mécanique</item>
         <item >Automatique</item>
     </string-array>
+    <string-array name="marque">
+        <item >Avanza</item>
+        <item >Benz</item>
+        <item >BMW</item>
+        <item >Dacia</item>
+        <item >Toyota</item>
+        <item >Volvo</item>
+    </string-array>
     
 </resources>

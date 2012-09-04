@@ -15,29 +15,31 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 import com.ingeniousafrica.android.client.R;
+
 import com.ingeniousafrica.android.client.metier.InfosClient;
 import com.ingeniousafrica.android.client.metier.InfosVoiture;
 
 public class Main extends Activity implements OnClickListener{
 
 	// Définition des variables globales pour contenir nos controles
-	EditText mNom;
-	EditText mPrenom;
+	EditText mNomText;
+	EditText mPrenomText;
+	
 	Spinner mSpcouleur;
 	Spinner mSpvitesse;
+	
 	Button mButton;
 
-	String mCouleur;
-	String mVitesse;
-
-	/** Creation de tableau du choix pour les options */
-	//private static final String Scouleurs [] = {"Rouge", "Bleue", "Verte",  "Noire", "Blanche", "Orange"};
-	//private static final String Svitesses [] = {"Mécanique", "Automatique"};
-
+	String mChoixCouleur;
+	String mChoixVitesse;
+	
+	String mName;
+	String mPrename;
+	
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		
+
 		/** Méthode appelée à la création de l'activité
 		 * @param savedInstanceState permet de restaurer l'état 
 		 * de l'interface utilisateur 
@@ -47,11 +49,11 @@ public class Main extends Activity implements OnClickListener{
 		setContentView(R.layout.activity_main);
 
 		// creation des accesseurs vers nos controles
-		mNom = (EditText) findViewById(R.id.editText1);
-		mNom.setInputType(InputType.TYPE_CLASS_TEXT);
+		mNomText = (EditText) findViewById(R.id.editText1);
+		mNomText.setInputType(InputType.TYPE_CLASS_TEXT);
 
-		mPrenom = (EditText) findViewById(R.id.activity_main_editext_prenom);
-		mPrenom.setInputType(InputType.TYPE_CLASS_TEXT);
+		mPrenomText = (EditText) findViewById(R.id.activity_main_editext_prenom);
+		mPrenomText.setInputType(InputType.TYPE_CLASS_TEXT);
 
 		mButton = (Button)findViewById(R.id.activity_main_button_valider);
 
@@ -59,55 +61,64 @@ public class Main extends Activity implements OnClickListener{
 		mButton.setOnClickListener(this);
 
 		mSpcouleur = (Spinner) findViewById(R.id.activity_main_spinner_couleur);
+
+		//ArrayAdapter<String> color_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, R.array.couleur);
+		ArrayAdapter<CharSequence> lColorAdapter = ArrayAdapter.createFromResource(this, R.array.couleur, android.R.layout.simple_spinner_item);
 		
-		//ArrayAdapter<String> color_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, Scouleurs);
-		ArrayAdapter<CharSequence> lColorAdapter = ArrayAdapter.createFromResource(
-				this, R.array.couleur, android.R.layout.simple_spinner_item);
 		lColorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		
+
 		mSpcouleur.setAdapter(lColorAdapter);
+
+		//Récupérons notre Resource array dans le tableau lColorView suivant
+		final String[] lColorView = this.getResources().getStringArray(R.array.couleur);
+
 		mSpcouleur.setOnItemSelectedListener(new OnItemSelectedListener() {
-			
+
 			public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-				
-				//int item = mSpcouleur.getSelectedItemPosition();
-				//mCouleur = Scouleurs[item];
 
-				showToast("La couleur choisie est : " + mCouleur);
+				int lItemCouleur = mSpcouleur.getSelectedItemPosition();
+				mChoixCouleur = lColorView[lItemCouleur];
 
-				//showToast("La vitesse choisie est : " + choix_couleur);
-				//showToast("Spinner2: position=" + position + " id=" + id);
+				//Récupérons notre Resource de type String puis affichons le
+				showToast(getResources().getString(R.string.affiche_choix_couleur) + mChoixCouleur);
+ 
 			}
 
+
 			public void onNothingSelected(AdapterView<?> parent) {
-				//showToast("Spinner2: unselected");
+				showToast(getResources().getString(R.string.pas_selection_couleur));
+				
 			}
 
 		});
 
 		mSpvitesse = (Spinner) findViewById(R.id.activity_main_spinner_boite_de_vitesse);
-		
-		//  ArrayAdapter<String> vitesse_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, Svitesses);
+
+		//ArrayAdapter<String> lVitesseAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, R.array.boite_de_vitesse);
 		ArrayAdapter<CharSequence> lVitesseAdapter = ArrayAdapter.createFromResource(
 				this, R.array.boite_de_vitesse, android.R.layout.simple_spinner_item);
 		lVitesseAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
 		mSpvitesse.setAdapter(lVitesseAdapter);
-		
+
+		//Recuperons notre Resource array dans le tableau lVitesseView suivant
+		final String [] lVitesseView = this.getResources().getStringArray(R.array.boite_de_vitesse);
+
 		mSpvitesse.setOnItemSelectedListener(new OnItemSelectedListener() {
-			public void onItemSelected(
-					AdapterView<?> parent, View view, int position, long id){
-  			   // int item = mSpvitesse.getSelectedItemPosition();
-				//mVitesse = Svitesses[item];
+
+			public void onItemSelected(AdapterView<?> parent, View view, int position, long id){
+
+				int lItemVitesse = mSpvitesse.getSelectedItemPosition();
+				mChoixVitesse = lVitesseView[lItemVitesse];
 				
-				showToast("Spinner1: position=" + view + " id=" + id);
-               
-				showToast("La vitesse choisie est : " + mVitesse);
+				//Récupérons notre Resource de type String puis affichons le
+				showToast(getResources().getString(R.string.affiche_choix_vitesse) + mChoixVitesse);
 
 			}
 
 			public void onNothingSelected(AdapterView<?> arg0) {
-				
 
+				showToast(getResources().getString(R.string.pas_selection_vitesse));
 			}
 		});
 
@@ -118,9 +129,10 @@ public class Main extends Activity implements OnClickListener{
 		switch (v.getId()) {
 		case R.id.activity_main_button_valider:
 
-			if(mNom.getText().toString() != null || mPrenom.getText().toString() != null){
+		//if(mNom.getText().toString() != null || mPrenom.getText().toString() != null){
+			
 				//Creation d un objet de type Bundle
-				Bundle objetbunble = new Bundle();
+				Bundle lObjetbunble = new Bundle();
 
 				//Instancions un objet client pour les infos du client
 				InfosClient client = new InfosClient();
@@ -129,39 +141,39 @@ public class Main extends Activity implements OnClickListener{
 				InfosVoiture voiture = new InfosVoiture();
 
 				//
-				client.setmNom(mNom.getText().toString());
-				client.setmPrenom(mPrenom.getText().toString());
+				client.setmNom(mNomText.getText().toString());
+				client.setmPrenom(mPrenomText.getText().toString());
 
 				//
-				voiture.setmCouleur(mCouleur);
-				voiture.setmVitesse(mVitesse);
+				voiture.setmCouleur(mChoixCouleur);
+				voiture.setmVitesse(mChoixVitesse);
 
 
 				//Mettons les objets client et voiture dans l'objet bundle afin de pouvoir le recuperer dans l'autre activity
-				objetbunble.putSerializable("client", client);
-				objetbunble.putSerializable("voiture", voiture);
+				lObjetbunble.putSerializable("client", client);
+				lObjetbunble.putSerializable("voiture", voiture);
 
-				Intent intent = new Intent(this, FabricVoiture.class);
-				
+				Intent lIntent = new Intent(this, FabricVoiture.class);
+
 				//Nous mettons l objet de type bundle dans l'intent
-				intent.putExtras(objetbunble);
-				
-				//Demarrons notre intent
-				startActivity(intent);
+				lIntent.putExtras(lObjetbunble);
+
+				//Démarrons notre intent
+				startActivity(lIntent);
 
 				break;
 			}
-			else
-			{
-				Intent intent = new Intent(this, Main.class);
-				startActivity(intent);
-				showToast("Les champs sont vides");
-			}
+//			else
+//			{
+//				Intent lIntent = new Intent(this, Main.class);
+//				startActivity(lIntent);
+//				//showToast(getResources().getString(R.string.champs_vides));
+//
+//			}
 
 		}
 
 
-	}
 
 	protected void showToast(String message) {
 

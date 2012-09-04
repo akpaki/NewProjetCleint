@@ -12,16 +12,19 @@ public class InfosVoiture implements Serializable{
 	private String mMarque;
 	private String mCouleur;
 	private String mVitesse;
+	private String mA;
    
 	
 	public InfosVoiture() {
 	}
 
-//	public InfosVoiture(String mMarque, String mCouleur, String mVitesse) {
-//		this.mMarque = mMarque;
-//		this.mCouleur = mCouleur;
-//		this.mVitesse = mVitesse;
-//	}
+	public InfosVoiture(String mMarque, String mCouleur, String mVitesse, String mA) {
+		super();
+		this.mMarque = mMarque;
+		this.mCouleur = mCouleur;
+		this.mVitesse = mVitesse;
+		this.mA = mA;
+	}
 	
 	public InfosVoiture(String mMarque, String mCouleur, String mVitesse) {
 		super();
@@ -58,6 +61,14 @@ public class InfosVoiture implements Serializable{
 
 	public void setmVitesse(String mVitesse) {
 		this.mVitesse = mVitesse;
+	}
+
+	public String getmA() {
+		return mA;
+	}
+
+	public void setmA(String mA) {
+		this.mA = mA;
 	}
 
 	

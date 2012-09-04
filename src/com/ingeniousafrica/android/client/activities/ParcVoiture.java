@@ -26,9 +26,12 @@ public class ParcVoiture extends Activity implements OnClickListener{
 	
 	ListView mListNewVoiture;
 	ListView mListVoiture;
+	
 	TextView mNomCli;
 	TextView mPrenomCli;
+	
 	Button mButtonRetourClient;
+	
 	DataRecupClientVoiture mData;
 	
 	@Override

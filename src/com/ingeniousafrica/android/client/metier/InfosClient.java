@@ -22,7 +22,39 @@ public class InfosClient implements Serializable{
 		this.mNom = mNom;
 		this.mPrenom = mPrenom;
 	}
+	
+	/*
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((mNom == null) ? 0 : mNom.hashCode());
+		result = prime * result + ((mPrenom == null) ? 0 : mPrenom.hashCode());
+		return result;
+	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		InfosClient other = (InfosClient) obj;
+		if (mNom == null) {
+			if (other.mNom != null)
+				return false;
+		} else if (!mNom.equals(other.mNom))
+			return false;
+		if (mPrenom == null) {
+			if (other.mPrenom != null)
+				return false;
+		} else if (!mPrenom.equals(other.mPrenom))
+			return false;
+		return true;
+	}
+	*/
 	public String getmNom() {
 		return mNom;
 	}

@@ -18,44 +18,55 @@ import android.widget.AdapterView.OnItemSelectedListener;
 
 public class FabricVoiture extends Activity implements OnClickListener{
 
-	Spinner sp_marque;
-	Button button_retour;
-	Button button_fabric;
-	String marque;
+	Spinner mSpMarque;
 	
-	Bundle objetbunble;
+	Button mButtonRetour;
+	Button mButtonFabric;
+	
+	String mChoixMarque;
+	
+	Bundle mObjetbunble;
 
-	private static final String Smarques [] = {"Avanza", "Benz", "BMW", "Dacia", "Toyota", "Volvo"};
-
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_fabric_voiture);
 
-		objetbunble  = this.getIntent().getExtras();
+		mObjetbunble  = this.getIntent().getExtras();
 
-		button_retour = (Button) findViewById(R.id.activity_fabric_voiture_button_retour);
-		button_fabric = (Button) findViewById(R.id.activity_fabric_voiture_button_fabriquer);
+		mButtonRetour = (Button) findViewById(R.id.activity_fabric_voiture_button_retour);
+		mButtonFabric = (Button) findViewById(R.id.activity_fabric_voiture_button_fabriquer);
 		
-		/** Mettons en place un ecouteur d evenement sur noscontrole button */
-		button_retour.setOnClickListener(this);
-		button_fabric.setOnClickListener(this);
+		/** Mettons en place un ecouteur d evenement sur nos controles button */
+		mButtonRetour.setOnClickListener(this);
+		mButtonFabric.setOnClickListener(this);
 
-		sp_marque = (Spinner) findViewById(R.id.spinner1);
-		ArrayAdapter<String> marque_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, Smarques);
-		marque_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		sp_marque.setAdapter(marque_adapter);
-		sp_marque.setOnItemSelectedListener(new OnItemSelectedListener() {
+		mSpMarque = (Spinner) findViewById(R.id.spinner1);
+		
+		ArrayAdapter<CharSequence> lMarqueAdapter = ArrayAdapter.createFromResource(this, R.array.marque, android.R.layout.simple_spinner_item);
+		
+		lMarqueAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		
+		mSpMarque.setAdapter(lMarqueAdapter);
+		
+		final String [] lMarqueView = this.getResources().getStringArray(R.array.marque);
+		
+		mSpMarque.setOnItemSelectedListener(new OnItemSelectedListener() {
 			public void onItemSelected(
 					AdapterView<?> parent, View view, int position, long id) {
-				int item = sp_marque.getSelectedItemPosition();
-				marque = Smarques[item];
+				
+				int lItemMarque = mSpMarque.getSelectedItemPosition();
+				mChoixMarque = lMarqueView[lItemMarque];
 
-				showToast("La marque choisie est : " + marque);
+				//Récupérons notre Resource de type String puis affichons le
+				showToast(getResources().getString(R.string.choix_marque_voiture) + mChoixMarque);
 			}
 
 			public void onNothingSelected(AdapterView<?> parent) {
-				//showToast("Spinner2: unselected");
+				
+				//Récupérons notre Resource de type String puis affichons le
+				showToast(getResources().getString(R.string.pas_choix_marque));
 			}
 
 		});
@@ -79,19 +90,18 @@ public class FabricVoiture extends Activity implements OnClickListener{
 		case R.id.activity_fabric_voiture_button_fabriquer:
 			
 			//Recupèrons  les objets client et voiture qui se trouve dans l'objet bundle
-			InfosClient client = (InfosClient)objetbunble.getSerializable("client");
-			InfosVoiture voiture = (InfosVoiture)objetbunble.getSerializable("voiture");
+			InfosClient client = (InfosClient)mObjetbunble.getSerializable("client");
+			InfosVoiture voiture = (InfosVoiture)mObjetbunble.getSerializable("voiture");
 			
 			//
-			voiture.setmMarque(marque);
+			voiture.setmMarque(mChoixMarque);
     		
-
-  		    objetbunble.putSerializable("voiture", voiture);
-  		    objetbunble.putSerializable("client", client);
+  		    mObjetbunble.putSerializable("voiture", voiture);
+  		    mObjetbunble.putSerializable("client", client);
 			
 
 			Intent intent2 = new Intent(this, ParcVoiture.class);
-			intent2.putExtras(objetbunble);
+			intent2.putExtras(mObjetbunble);
 			startActivity(intent2);
 
 			// Fin de l'activité
@@ -99,9 +109,11 @@ public class FabricVoiture extends Activity implements OnClickListener{
 			break;
 
 		case R.id.activity_fabric_voiture_button_retour:
+			
 			Intent intent3 = new Intent(this, Main.class);
-			intent3.putExtras(objetbunble);
+			intent3.putExtras(mObjetbunble);
 			startActivity(intent3);
+			
 			// Fin de l'activité puis retour en arriere
 			finish();
 
